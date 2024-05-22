@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InventoryMgmtQA.Model
 {
     [TestClass]
-    public class InventoryManagerTest
+    public class ProductTest
     {
         [TestMethod]
         public void TestAddProduct()

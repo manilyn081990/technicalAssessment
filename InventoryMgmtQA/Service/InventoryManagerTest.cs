@@ -34,21 +34,17 @@ namespace InventoryMgmtQA.Service
         }
 
         [TestMethod]
-        public void TestAddProductNegativePrice()
+        public void TestAddProductPriceNegative()
         {
             using (StringWriter sw = new StringWriter())
             {
-                // capture console output
                 Console.SetOut(sw);
-
-                // create a new product with invalid attribute values
                 _inventoryManager.AddNewProduct(
                     "TestProduct",
                     1,
                     -1.0M
                 );
-
-                Assert.IsTrue(!sw.ToString().Contains("success"));
+                Assert.IsFalse(sw.ToString().Contains("success"));
             }
         }
 
@@ -57,17 +53,13 @@ namespace InventoryMgmtQA.Service
         {
             using (StringWriter sw = new StringWriter())
             {
-                // capture console output
                 Console.SetOut(sw);
-
-                // create a new product with valid attribute values
                 _inventoryManager.AddNewProduct(
                     "TestProduct",
                     1,
                     2.56M
                 );
                 _inventoryManager.GetTotalValue();
-
                 Assert.IsTrue(sw.ToString().Contains("2.56"));
             }
         }
