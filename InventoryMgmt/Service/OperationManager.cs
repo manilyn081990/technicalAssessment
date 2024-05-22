@@ -38,11 +38,11 @@ namespace InventoryMgmt.Service
         {
             Console.WriteLine("Add a product");
             Console.WriteLine("Name:");
-            var productName = Console.ReadLine();
+            string productName = Console.ReadLine();
             Console.WriteLine("Quantity:");
-            var quantity = Convert.ToInt32(Console.ReadLine());
+            int quantity = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Price:");
-            var price = Convert.ToDecimal(Console.ReadLine());
+            decimal price = Convert.ToDecimal(Console.ReadLine());
             _inventoryManager.AddNewProduct(productName, quantity, price);
         }
 
@@ -50,18 +50,18 @@ namespace InventoryMgmt.Service
         {
             Console.WriteLine("Remove a product");
             Console.WriteLine("Product ID:");
-            var productId = Convert.ToInt32(Console.ReadLine());
-            _inventoryManager.RemoveProduct(productId);
+            int productID = Convert.ToInt32(Console.ReadLine());
+            _inventoryManager.RemoveProduct(productID);
         }
 
         private void UpdateOperation()
         {
             Console.WriteLine("Update a product");
             Console.WriteLine("Product ID:");
-            var productId = Convert.ToInt32(Console.ReadLine());
+            int productID = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("New quantity:");
-            var quantity = Convert.ToInt32(Console.ReadLine());
-            _inventoryManager.UpdateProduct(productId, quantity);
+            int quantity = Convert.ToInt32(Console.ReadLine());
+            _inventoryManager.UpdateProduct(productID, quantity);
         }
     }
 }
